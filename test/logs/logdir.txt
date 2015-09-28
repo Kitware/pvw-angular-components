@@ -1,0 +1,2 @@
+When running the demo (npm run start), this directory will be used to
+write log files and store the proxy-mapping.txt file.
