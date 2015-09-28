@@ -1,0 +1,46 @@
+{
+    "configuration": {
+        "host" : "localhost",
+        "port" : 9500,
+        "endpoint": "paraview",
+        "content": "dist",
+        "proxy_file" : "./test/logs/proxy-mapping.txt",
+        "sessionURL" : "ws://${host}:${port}/ws",
+        "timeout" : 35,
+        "log_dir" : "./test/logs",
+        "fields" : []
+    },
+
+    "sessionData": {},
+
+    "resources": [ { "host" : "localhost", "port_range" : [9501, 9510] } ],
+
+    "properties" : {
+        "pvpython" : "replace_pv_python",
+        "serverScriptsDir": "./server",
+        "dataDir": "replace_data_dir"
+    },
+
+    "apps" : {
+        "meshtagger" : {
+            "cmd" : [
+                "${pvpython}",
+                "-dr",
+                "${serverScriptsDir}/pv_mesh_viewer.py",
+                "--port", "${port}",
+                "--file", "${dataDir}/${fileToLoad}"
+            ],
+            "ready_line" : "Starting factory"
+        },
+        "resultviewer" : {
+            "cmd" : [
+                "${pvpython}",
+                "-dr",
+                "${serverScriptsDir}/pv_web_visualizer.py",
+                "--port", "${port}",
+                "--data-dir", "${dataDir}"
+            ],
+            "ready_line" : "Starting factory"
+        }
+    }
+}

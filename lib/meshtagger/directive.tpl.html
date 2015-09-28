@@ -1,0 +1,66 @@
+<div class="hydra-mesh-viewer">
+   <div class="control-tab open">
+      <table class='table table-striped table-hover table-condensed'>
+         <tbody>
+            <tr ng-repeat="elt in elements" ng-class="{ info: ($index === activeElement)}" ng-click="updateActiveElement( $index)">
+               <td ng-click="toggleVisibility($index)"><i class="fa" ng-class="{ 'fa-eye' : elt.visible, 'fa-eye-slash': !elt.visible }"></i></td>
+               <td>{{ elt.name }}</td>
+               <td>
+                  <div class="fa" ng-class="{ 'fa-tags' : elt.tags.length > 0}">
+                     <md-tooltip>{{ elt.tags.join(', ') }}</md-tooltip>
+                  </div>
+               </td>
+               <td style="color: {{ elt.color }};" ng-click="changeColor($index)"><i class="fa fa-circle clickable"></i></td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+   <div class="control-panel">
+      <span class="fa-stack fa left clickable" ng-click="toggleControlTab()">
+         <i class="fa fa-stack-1x" ng-class="{ 'fa-caret-down': showingControlTab, 'fa-caret-right': !showingControlTab }">
+            <md-tooltip>Toggle Element List</md-tooltip>
+         </i>
+      </span>
+      <div class="fa-stack fa" style="position: relative; margin-top: 3px; width: 55px; float: left">
+         <div class="faces-blocks-label left clickable" ng-click="toggleElementType()">
+            {{ showingFaces ? "Faces" : "Blocks" }}
+         </div>
+         <md-tooltip>Display {{ showingFaces ? "Block" : "Face" }} List</md-tooltip>
+      </div>
+      <span class="fa-stack fa right clickable" ng-click="tag($event)">
+         <i class="fa fa-tags fa-stack-1x">
+            <md-tooltip>Tag Visible {{ showingFaces ? "Faces" : "Blocks" }}</md-tooltip>
+         </i>
+      </span>
+      <span class="fa-stack fa right clickable" ng-click="resetCamera()">
+         <i class="fa fa-arrows-alt fa-stack-1x">
+            <md-tooltip>Reset Camera</md-tooltip>
+         </i>
+      </span>
+      <span class="fa-stack fa right clickable" ng-click="toggleVisibility(-1)">
+         <i class="fa fa-cube fa-stack-1x">
+            <md-tooltip>Toggle Outline Visibility</md-tooltip>
+         </i>
+      </span>
+      <span class="fa-stack fa right clickable" ng-click="toggleBackgroundColor()">
+         <i class="fa fa-paint-brush fa-stack-1x">
+            <md-tooltip>Toggle Background Color</md-tooltip>
+         </i>
+      </span>
+      <span class="fa-stack fa right clickable" ng-click="toggleVisibility(-2)">
+         <i class="fa fa-eye fa-stack-1x">
+            <md-tooltip>Show All {{ showingFaces ? "Faces" : "Blocks" }}</md-tooltip>
+         </i>
+      </span>
+      <span class="fa-stack fa right clickable" ng-click="toggleVisibility(-3)">
+         <i class="fa fa-eye-slash fa-stack-1x">
+            <md-tooltip>Hide All {{ showingFaces ? "Faces" : "Blocks" }}</md-tooltip>
+         </i>
+      </span>
+   </div>
+   <div class="renderer">
+   </div>
+   <div class="busy-spinner-container">
+      <i class="fa fa-spinner fa-5x fa-spin busy-spinner-indicator"></i>
+   </div>
+</div>

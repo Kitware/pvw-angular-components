@@ -1,0 +1,40 @@
+<div>
+
+  <div class="main-application-toolbar">
+    <div class="header-group outline left">
+      <label class="header-label">Mesh Tagger</label>
+      <input class="connect-button" type="button" value="Disconnect" ng-click="meshTagDisconnect()"/>
+      <input class="connect-button" type="button" value="Connect" ng-click="meshTagConnect()"/>
+      <input class="file-to-load-input" ng-model="file.name"></input>
+    </div>
+
+    <div class="header-group" style="text-align: center;">
+      <h2 style="position: relative; bottom: 12px;"> ParaViewWeb Component Demo </h2>
+    </div>
+
+    <div class="header-group outline right">
+      <label class="header-label">Result Viewer</label>
+      <input class="connect-button" type="button" value="Disconnect" ng-click="resultViewDisconnect()"/>
+      <input class="connect-button" type="button" value="Connect" ng-click="resultViewConnect()"/>
+    </div>
+  </div>
+
+  <div class="meshtagger-container">
+    <!-- ParaViewWeb: mesh tagger component invocation -->
+    <pvw-mesh-tagger url="/paraview"
+                     appkey="meshtagger"
+                     state="stateInterface"
+                     loadfile="file.name"
+                     ng-if="meshTaggerConnected">
+    </pvw-mesh-tagger>
+  </div>
+
+  <div class="resultviewer-container">
+    <!-- ParaViewWeb: result viewer (Web Visualizer) component invocation -->
+    <pvw-visualizer url="/paraview"
+                    appKey="resultviewer"
+                    ng-if="resultViewerConnected">
+    </pvw-visualizer>
+  </div>
+
+</div>

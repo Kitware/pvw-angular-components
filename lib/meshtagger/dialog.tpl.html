@@ -1,0 +1,21 @@
+<md-dialog aria-label="Tag mesh" style="width: 50%;">
+<md-subheader class="md-sticky-no-effect cmb-subheader">
+  <div layout="row">
+    <strong title>{{ data.dialogTitle }}</strong>
+    <span flex></span>
+    <span class="fa fa-close" ng-click="cancel()" style="padding: 0 16px 0 0;">
+    </span>
+  </div>
+</md-subheader>
+<md-content layout="row">
+    <form layout="column" flex>
+        <md-input-container class="width-100" flex><label>{{ data.elementInputLabel }}</label><input ng-model="data.ids"></md-input-container>
+        <md-input-container class="width-100" flex><label>List of tags</label><input ng-model="data.tags"></md-input-container>
+    </form>
+</md-content>
+  <div class="md-actions" layout="row">
+    <span flex></span>
+    <md-button ng-click="ok(data)" class="md-raised md-primary">Save</md-button>
+    <md-button ng-click="cancel()" class="md-raised md-warn">Cancel</md-button>
+  </div>
+</md-dialog>

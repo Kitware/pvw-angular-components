@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>ParaViewWeb Meshtag Example App</title>
+    <base href="/">
+    <link type="text/css" rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="angular-material/angular-material.min.css">
+    <link type="text/css" rel="stylesheet" href="style.css">
+  </head>
+
+  <body ng-app="pvwebExampleApp">
+    <!-- Main demo application directive -->
+    <demo-app></demo-app>
+
+    <!-- Script includes we do not want webpack to resolve for us -->
+    <script src="assets/lib/core/vtkweb-loader.js" load="core, pv-visualizer, pv-visualizer-main-js"></script>
+    <script type="text/javascript" src="angular/angular.js"></script>
+    <script type="text/javascript" src="angular-aria/angular-aria.min.js"></script>
+    <script type="text/javascript" src="angular-animate/angular-animate.min.js"></script>
+    <script type="text/javascript" src="angular-material/angular-material.min.js"></script>
+
+    <!-- Include the built file webpack generated when running the demo -->
+    <script type="text/javascript" src="PvwAngularComponents.js"></script>
+
+    <!-- And include a very basic directive/controller for this demo application -->
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>

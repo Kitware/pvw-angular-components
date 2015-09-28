@@ -1,0 +1,48 @@
+{
+  "name": "pvw-angular-components",
+  "version": "0.0.1",
+  "description": "ParaViewWeb Components with AngularJS and webpack",
+  "main": "./lib/index.js",
+  "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Kitware/pvw-angular-components.git"
+  },
+  "dependencies": {
+    "angular": "1.3.15",
+    "angular-aria": "1.3.15",
+    "angular-animate": "1.3.15",
+    "angular-material": "~0.10.0",
+    "font-awesome": "4.2.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.3.15",
+    "autoprefixer": "^6.0.2",
+    "autoprefixer-loader": "2.0.0",
+    "babel-core": "^5.5.8",
+    "babel-loader": "^5.1.4",
+    "babel-runtime": "^5.5.8",
+    "css-loader": "^0.18.0",
+    "expose-loader": "0.7.0",
+    "extract-text-webpack-plugin": "^0.8.2",
+    "file-loader": "^0.8.4",
+    "html-webpack-plugin": "^1.5.2",
+    "jshint": "2.8.0",
+    "jshint-loader": "0.8.3",
+    "node-libs-browser": "^0.5.2",
+    "null-loader": "^0.1.1",
+    "postcss-loader": "^0.6.0",
+    "raw-loader": "^0.5.1",
+    "style-loader": "^0.12.3",
+    "webpack": "^1.9.11",
+    "url-loader": "^0.5.6"
+  },
+  "scripts": {
+    "postinstall": "rm -rf dist/angular-material && ln -s ../node_modules/angular-material dist/ && rm -rf dist/angular-animate && ln -s ../node_modules/angular-animate dist/ && rm -rf dist/angular-aria && ln -s ../node_modules/angular-aria dist/ && rm -rf dist/angular && ln -s ../node_modules/angular dist/ && rm -rf dist/font-awesome && ln -s ../node_modules/font-awesome dist/",
+
+    "build": "webpack --config webpack-config.js",
+
+    "prestart": "PVPYTHON=$npm_package_config_pvpython && DATADIR=$npm_package_config_datadir && sed \"s|replace_pv_python|$PVPYTHON|\" test/launchPvweb.template | sed \"s|replace_data_dir|$DATADIR|\" > test/launchPvweb.json",
+    "start": "$npm_package_config_pvpython $npm_package_config_launcher test/launchPvweb.json"
+  }
+}

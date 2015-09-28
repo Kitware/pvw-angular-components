@@ -1,0 +1,10 @@
+node_modules/
+test/launchPvweb.json
+test/logs/
+dist/angular
+dist/angular-material
+dist/angular-animate
+dist/angular-aria
+dist/font-awesome
+.DS_Store
+

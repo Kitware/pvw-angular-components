@@ -1,0 +1,71 @@
+.meshtagger-container {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    border: 1px solid black;
+}
+
+.resultviewer-container {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    border: 1px solid black;
+}
+
+.header-group {
+    position: relative;
+    float: left;
+    width: 33%;
+}
+
+.header-group.outline.left {
+    float: left;
+    padding-left: 10px;
+    padding-right: 5px;
+    position: relative;
+    top: 6px;
+    left: 6px;
+}
+
+.header-group.outline.right {
+    float: right;
+    padding-left: 10px;
+    padding-right: 5px;
+    position: relative;
+    top: 6px;
+    right: 6px;
+}
+
+.header-group.outline {
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.main-application-toolbar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 50px;
+    background-color: lightgrey;
+}
+
+input.connect-button {
+    margin: 5px;
+    float: right;
+}
+
+input.file-to-load-input {
+    margin: 5px;
+    float: right;
+}
+
+label.header-label {
+    float: left;
+    position: relative;
+    top: 7px;"
+}
