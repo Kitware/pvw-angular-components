@@ -11,7 +11,7 @@
     top: 30px;
     left: 30px;
     z-index: 50;
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px;
     color: black;
     background-color: #aaaaaa;
     width: 350px;
@@ -73,8 +73,8 @@
 }
 
 .busy-spinner-indicator {
-    display: none;
-    color: white;
+    display: block;
+    color: black;
 }
 
 .clickable {
