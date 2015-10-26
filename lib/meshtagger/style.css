@@ -68,8 +68,8 @@
 
 .busy-spinner-container {
     position: absolute;
-    left: 56%;
-    top: 45%;
+    left: calc(50vw - 31px); /* width of spinner is ~62 */
+    top: calc(50vh - 125px); /* height of toolbars: ~60px, height of spinner: 70px; */
 }
 
 .busy-spinner-indicator {
